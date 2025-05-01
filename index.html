@@ -23,35 +23,33 @@
     </script>
 
     <style>
-      /* Apply Flexbox to the body */
+      /* Fullscreen container */
       body, html {
         margin: 0;
         padding: 0;
         height: 100%;
         width: 100%;
-        display: flex;
-        align-items: center;  /* Vertically center the game */
-        justify-content: center;  /* Horizontally center the game */
-        background: #222;  /* Optional background color */
+        overflow: hidden; /* Hide overflow */
       }
 
-      /* WebGL container */
       .webgl-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        height: 100%;
       }
 
-      /* Game container filling the entire screen */
       #gameContainer {
         width: 100%;
         height: 100%;
-        background-color: black;  /* Optional background color */
+        transform: scale(1); /* Ensure it's scaled properly */
+        transform-origin: 0 0; /* Start scaling from the top left corner */
       }
 
-      /* Remove footer and other UI elements */
       .footer {
         display: none;
       }
