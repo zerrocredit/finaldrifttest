@@ -11,7 +11,7 @@
     <script>
       var gameInstance = UnityLoader.instantiate(
         "gameContainer",
-        "Build/drift-hunters.json", // Make sure this path is correct
+        "Build/drift-hunters.json", // Ensure this path is correct
         {
             onProgress: UnityProgress,
             Module: {
@@ -23,34 +23,37 @@
     </script>
 
     <style>
-      /* Remove any default margin and padding */
+      /* Apply Flexbox to the body */
       body, html {
         margin: 0;
         padding: 0;
         height: 100%;
         width: 100%;
+        display: flex;
+        align-items: center;  /* Vertically center the game */
+        justify-content: center;  /* Horizontally center the game */
+        background: #222;  /* Optional background color */
       }
 
-      /* Make sure the game container takes up the full viewport */
+      /* WebGL container */
       .webgl-content {
-        height: 100vh; /* Full height of the viewport */
-        width: 100vw;  /* Full width of the viewport */
-        margin: 0;
-        padding: 0;
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        height: 100%;
       }
 
-      /* Optional: Remove footer and other UI elements for fullscreen game */
-      .footer {
-        display: none;
-      }
-
+      /* Game container filling the entire screen */
       #gameContainer {
         width: 100%;
         height: 100%;
-        background-color: black; /* Optional: Set a background color */
+        background-color: black;  /* Optional background color */
+      }
+
+      /* Remove footer and other UI elements */
+      .footer {
+        display: none;
       }
     </style>
   </head>
