@@ -4,48 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Drift Hunters</title>
-    <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
       var gameInstance = UnityLoader.instantiate(
         "gameContainer",
-        "Build/drift-hunters.json",  // Make sure the path is correct here
+        "Build/drift-hunters.json",  // Ensure this path is correct here
         {
-            onProgress: UnityProgress,
+            onProgress: function(progress) {
+                console.log("Loading: " + progress + "%");
+            },
             Module: {
                 onRuntimeInitialized: function() {
-                    UnityProgress(gameInstance, "complete");
+                    console.log("Unity game is initialized!");
                 }
             }
         });
     </script>
     <style>
-      /* Set body and html to take the entire screen */
       html, body {
-        height: 100%;
         margin: 0;
         padding: 0;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: black;
       }
 
-      /* Make sure the game container takes up the full screen */
       #gameContainer {
         width: 100%;
         height: 100%;
         background-color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
       }
-
-      /* Hide footer and other elements */
-      .footer {
-        display: none;
-      }
-
     </style>
   </head>
   <body>
